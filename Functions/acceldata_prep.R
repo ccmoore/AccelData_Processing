@@ -1,4 +1,4 @@
-acceldata_prep <- function(input_dir, file_pattern, output_dir, naming_start, naming_stop) {
+acceldata_prep <- function(input_dir, file_pattern, output_dir, newname_start, newname_stop) {
   files_1sec <- list.files(input_dir, pattern = file_pattern)
   
   for(i in 1:length(files_1sec)) {
@@ -20,9 +20,9 @@ acceldata_prep <- function(input_dir, file_pattern, output_dir, naming_start, na
                                       TS = "TimeStamp", cts = "axis1",
                                       streamFrame = NULL, allowanceFrame = 2, newcolname = "wearing",
                                       getMinuteMarking = FALSE, dayStart = "00:00:00", tz = "UTC")
-    write.csv(acceldata_final, paste0(output_dir,"/PrepedData_", 
-                                      substr(files_1sec[i], start = naming_start, stop = naming_stop),
-                                      ".csv"))
+    write.csv(acceldata_final, 
+              paste0(output_dir,"/PrepedData_", substr(files_1sec[i], start = newname_start, stop = newname_stop), ".csv"),
+              row.names = FALSE)
   }
 }
 
