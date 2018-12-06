@@ -1,5 +1,6 @@
-sleep_filter <- function(PAdata_dir, sleeplog_dir, subjectID_length, PAfile_pattern = "^PrepedData",
-                         sleeplog_pattern = "*SleepLog", sleeplog_IDstart = 1, output_dir = PAdata_dir){
+sleep_filter <- function(PAdata_dir, output_dir, sleeplog_dir, subjectID_length,
+                         PAfile_pattern = "^PrepedData", sleeplog_pattern = "*SleepLog",
+                         sleeplog_IDstart = 1){
 
   sleeplog_files <- list.files(sleeplog_dir, pattern = sleeplog_pattern)
   pa_files <- list.files(PAdata_dir, pattern = PAfile_pattern)
