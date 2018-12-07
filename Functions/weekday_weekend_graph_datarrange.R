@@ -14,3 +14,4 @@ weeday_weekend_dat_arrange <- function(dat){
               sd = sd(MVPA_min),
               se = sd / sqrt(N))
 }
+
