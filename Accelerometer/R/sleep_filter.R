@@ -93,5 +93,7 @@ sleep_filter <- function(acceldata_dir, sleeplog_dir, output_dir, subjectID_leng
      write.csv(wake_data,
                paste0(output_dir,"/FilteredWakeData_", subjects_accel_files[i], ".csv"),
                row.names = FALSE)
+     print(paste("FilteredWakeData file written in", output_dir, "for subject",
+                 subjects_accel_files[i]))
   }
 }

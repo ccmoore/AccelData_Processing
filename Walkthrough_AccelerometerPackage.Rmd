@@ -1,0 +1,43 @@
+---
+title: "AccelData_Processing"
+author: "Chris Moore"
+date: "December 6, 2018"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Required packages
+```{r}
+library(tidyverse)
+library(RSQLite)
+library(PhysicalActivity)
+load_all("./Accelerometer")
+```
+
+
+
+## 1) Take 1-sec epoch data exproted by accelerometer software and add a time stamp, reintegrate to 60-sec, add a day variable, and classify wear time to create 'PrepedData' files
+
+```{r}
+?acceldata_prep
+acceldata_prep(input_dir = "./Data", file_pattern = "*1secAGdata.csv", 
+               output_dir = "./Outputs", subjectID_length = 2,
+               subjectID_start = 1)
+```
+Also created custom function for reintegrating 1-sec epoch files to 60-sec epoch ('reintegrate_accel' function in R folder)
+
+
+## 2) Import 'PrepedData' files, use sleep logs to filter out data collected during sleep, and create 'FilteredWakeData' files
+
+```{r}
+?sleep_filter
+sleep_filter(acceldata_dir = "./Outputs", sleeplog_dir = "./Data",
+             output_dir = "./Outputs", subjectID_length = 2, 
+             accelfile_pattern = "^PrepedData", sleeplog_pattern = "*SleepLog",
+             accelfile_IDstart = 12, sleeplog_IDstart = 1)
+```
+
+## 3)
