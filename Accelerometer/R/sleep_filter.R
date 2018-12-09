@@ -1,4 +1,5 @@
 
+
 #'Use a sleep log to remove accelerometer data collected during sleep
 #'
 #'Imports the sleep log and accelerometer physical activity file for each
@@ -54,7 +55,6 @@
 sleep_filter <- function(acceldata_dir, sleeplog_dir, output_dir, subjectID_length,
                          accelfile_pattern = "^PrepedData", sleeplog_pattern = "*SleepLog",
                          accelfile_IDstart = 12, sleeplog_IDstart = 1){
-
   sleeplog_files <- list.files(sleeplog_dir, pattern = sleeplog_pattern)
   accel_files <- list.files(acceldata_dir, pattern = accelfile_pattern)
 

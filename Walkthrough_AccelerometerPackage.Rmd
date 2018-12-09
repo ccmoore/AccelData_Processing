@@ -28,7 +28,6 @@ acceldata_prep(input_dir = "./Data", file_pattern = "*1secAGdata.csv",
 ```
 Also created custom function for reintegrating 1-sec epoch files to 60-sec epoch ('reintegrate_accel' function in R folder, just to try, function not complete with documentation)
 
-
 ## 1b) Import 'PrepedData' files, use sleep logs to filter out data collected during sleep, and create 'FilteredWakeData' files
 ```{r}
 ?sleep_filter

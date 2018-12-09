@@ -1,18 +1,19 @@
 
-#' Plot steps vs time (minute)
+#' Plot steps per minute
 #'
-#' @param pa_data dataframe with one minute epoch dat
+#' @param pa.dat 
 #'
-#' @return a line graph of steps for each minute over the study period, with blue horizontal lines for each 24hrs
+#' @returng a ggplot
 #' @export
 #'
-#' @examples plot_steps(my_data)
-plot_steps <- function(pa_data){
+#' @examples
+plot_steps <- function(pa.dat){
 
-  pa_data$study_min <- as.numeric(row.names(pa_data))
+  pa.dat$study_min <- as.numeric(row.names(pa.dat))
 
-  ggplot(data = pa_data)+
-    geom_line(aes(x = study_min, y = steps))+
+
+  ggplot(data = pa.dat)+
+    geom_point(aes(x = study_min, y = steps))+
     geom_vline(aes(xintercept=1440), linetype="dashed",colour="blue",size=0.7)+
     geom_vline(aes(xintercept=2880), linetype="dashed",colour="blue",size=0.7)+
     geom_vline(aes(xintercept=4320), linetype="dashed",colour="blue",size=0.7)+
@@ -23,8 +24,8 @@ plot_steps <- function(pa_data){
     panel.grid.major = element_blank(),
     panel.grid.minor = element_blank(),
     panel.background = element_blank())
-}
 
+}
 
 
 

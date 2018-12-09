@@ -35,7 +35,9 @@
 #' monitoring each epoch is in, changing at each occurance of midnight),
 #' wearing (character string of "w" when epoch is considered wear time and
 #' "nw" for nonwear), and weekday (character string indicating day of the week)
+
 #'@export
+
 #'
 #' @examples
 #'  acceldata_prep(input_dir = "./Data", file_pattern = "*1secAGdata.csv",
@@ -81,5 +83,6 @@ acceldata_prep <- function(input_dir, file_pattern, output_dir,
                        stop = (subjectID_start+subjectID_length-1))))
   }
 }
+
 
 
