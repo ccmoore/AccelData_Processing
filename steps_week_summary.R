@@ -5,6 +5,7 @@ acceldata_PAI <- markPAI(data = data, cts = "axis1", markingString = "w",
                          labels = c("sedentary", "light", "moderate", "vigorous"))
 
 ### Sort data by physical activity intensity ###
+### Summarize steps per week ###
 steps_week_summary <- function(acceldata_PAI) return(steps_byday, steps_byweekday_end, steps_weekavg){
   steps_byday <- acceldata_PAI %>%
     filter(wearing == "w") %>% 
