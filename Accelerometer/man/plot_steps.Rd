@@ -2,15 +2,18 @@
 % Please edit documentation in R/plot_steps.R
 \name{plot_steps}
 \alias{plot_steps}
-\title{Plot steps per minute}
+\title{Plot steps vs time (minute)}
 \usage{
-plot_steps(pa.dat)
+plot_steps(pa_data)
 }
 \arguments{
-\item{a}{dataframe. x = study_min, y = steps}
+\item{pa_data}{dataframe with one minute epoch dat}
+}
+\value{
+a line graph of steps for each minute over the study period, with blue horizontal lines for each 24hrs
 }
 \description{
-Plot steps per minute
+Plot steps vs time (minute)
 }
 \examples{
 plot_steps(my_data)

@@ -47,8 +47,8 @@ import_data <- read.csv("./Outputs/FilteredWakeData_CM.csv")
 
 ## 2) Classify physical activity intensity and summarize MVPA and sedentary time per day, per week and for weekday vs weekend
 ```{r}
-
-
+?pai_week_summary
+pai_week_summary(import_data)
 ```
 
 
@@ -78,5 +78,7 @@ plot_steps(import_data)
 ## 4c) Plot comparison of weekday versus weekend physical activity 
 ```{r}
 ?plot_weekday_vs_end # REP mvpa_plot
-plot_weekday_vs_end(steps_byweekday_end, pai_byweekday_end, "CM")
+plot_weekday_vs_end(pai_byweekday_end, steps_byweekday_end, "CM")
+plot_pai_dayend
+plot_steps_dayend
 ```
