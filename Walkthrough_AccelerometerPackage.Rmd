@@ -1,0 +1,82 @@
+---
+title: "AccelData_Processing"
+author: "Chris Moore"
+date: "December 6, 2018"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Required packages
+```{r}
+library(tidyverse)
+library(RSQLite)
+library(PhysicalActivity)
+load_all("./Accelerometer")
+```
+
+# Step 1: Prepare data
+
+## 1a) Take 1-sec epoch data exproted by accelerometer software and add a time stamp, reintegrate to 60-sec, add a day variable, and classify wear time to create 'PrepedData' files
+```{r}
+?acceldata_prep
+acceldata_prep(input_dir = "./Data", file_pattern = "*1secAGdata.csv", 
+               output_dir = "./Outputs", subjectID_length = 2,
+               subjectID_start = 1)
+```
+Also created custom function for reintegrating 1-sec epoch files to 60-sec epoch ('reintegrate_accel' function in R folder, just to try, function not complete with documentation)
+
+## 1b) Import 'PrepedData' files, use sleep logs to filter out data collected during sleep, and create 'FilteredWakeData' files
+```{r}
+?sleep_filter
+sleep_filter(acceldata_dir = "./Outputs", sleeplog_dir = "./Data",
+             output_dir = "./Outputs", subjectID_length = 2, 
+             accelfile_pattern = "^PrepedData", sleeplog_pattern = "*SleepLog",
+             accelfile_IDstart = 12, sleeplog_IDstart = 1)
+```
+
+
+# Step 2: Examine physical activity with counts
+
+## Import prepped and filtered data from Step 1
+```{r}
+import_data <- read.csv("./Outputs/FilteredWakeData_CM.csv")
+```
+
+## 2) Classify physical activity intensity and summarize MVPA and sedentary time per day, per week and for weekday vs weekend
+```{r}
+
+
+```
+
+
+# Step 3: Examine physical activity with steps
+
+## 3) Summarize total steps for each day, average steps/day over the week, and average steps/day on weekdays vs weekends
+```{r}
+?steps_week_summary
+steps_week_summary(import_data)
+```
+
+
+# Step 4:Data visualization
+
+## 4a) Plot counts vs time using 'PhysicalActivity' package
+```{r}
+?plotData
+plotData(import_data, cts = "axis1", TS = "TimeStamp")
+```
+
+## 4b) Plot steps vs time
+```{r}
+?plot_steps
+plot_steps(import_data)
+```
+
+## 4c) Plot comparison of weekday versus weekend physical activity 
+```{r}
+?plot_weekday_vs_end # REP mvpa_plot
+plot_weekday_vs_end(steps_byweekday_end, pai_byweekday_end, "CM")
+```
