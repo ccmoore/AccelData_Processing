@@ -1,9 +1,9 @@
 
-#' Plot steps per minute
+#' Plot steps/day per minute
 #'
-#' @param a dataframe. x = study_min, y = steps
+#' @param  dataframe. x = study_min, y = steps
 #'
-#' @returng a ggplot
+#' @return a ggplot
 #' @export
 #'
 #' @examples plot_steps(my_data)
