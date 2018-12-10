@@ -10,6 +10,6 @@ document("./Accelerometer")
 build("./Accelerometer")
 
 ### Test Functions ###
-load_all()
+load_all("./Accelerometer")
 ?acceldata_prep
 ?sleep_filter

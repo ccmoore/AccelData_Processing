@@ -19,5 +19,4 @@ steps_week_summary <- function(acceldata_PAI) {
 
   steps_weekavg <<- steps_byday %>%
     summarise(steps = sum(steps) / n())
-  return(c(steps_byday, steps_byweekday_end, steps_weekavg))
 }
