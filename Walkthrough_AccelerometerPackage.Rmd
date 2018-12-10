@@ -14,7 +14,7 @@ Required packages
 library(tidyverse)
 library(RSQLite)
 library(PhysicalActivity)
-load_all("./Accelerometer")
+devtools::load_all("./Accelerometer")
 ```
 
 # Step 1: Prepare data
@@ -85,7 +85,7 @@ plot_steps(import_data)
 
 ## 4c) Plot comparison of weekday versus weekend physical activity 
 ```{r}
-?plot_weekday_vs_end # REP mvpa_plot
+?plot_weekday_vs_end
 plot_weekday_vs_end(pai_byweekday_end, steps_byweekday_end, "CM")
 
 plot_pai_dayend
