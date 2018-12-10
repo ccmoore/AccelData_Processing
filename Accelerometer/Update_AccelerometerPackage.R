@@ -4,12 +4,12 @@ library(roxygen2)
 ### To Update R Package ###
 
 # 1) Update function documentation
-document("./Accelerometer")
+document()
 
 # 2) Rebuild package
-build("./Accelerometer")
+build()
 
 ### Test Functions ###
-load_all("./Accelerometer")
+load_all()
 ?acceldata_prep
 ?sleep_filter
