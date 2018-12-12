@@ -7,35 +7,19 @@
 steps_week_summary(acceldata_PAI)
 }
 \arguments{
-\item{acceldata_PAI}{function created within 'pai_week_changes' to assign physical activity intensity}
-
-\item{data}{pull in data frame from output folder}
-
-\item{steps_week_summary}{master function used to create functions 
-"steps_byday", "steps_byweekday_end", and "steps_weekavg"}
-
-\item{steps_byday}{function used to create data frame classifying average step counts
-for each day of the week}
-
-\item{pai_byweekday_end}{function used to create data frame classifying step counts
-for the average of all weekdays compared to the average of all weekend days}
-
-\item{pai_weekavg}{function used to create data frame classifying step counts
-for the average of the entire week as a whole}
+\item{acceldata_PAI}{1-minute epoch accelerometer data with sleep time
+filtered out, a time stamp, and wear time classified (i.e., output from
+sleep_filter function)}
 }
 \value{
-function "steps_week_summary" computes values and associated data frames for variables 
- "steps_byday", "steps_byweekday_end", and "steps_weekavg"
+returns three objects, each consisting of a dataframe: "steps_byday"
+(steps/day for each day), "steps_byweekday_end" (average steps/day for
+weekdays and for weekends), and "steps_weekavg" (average steps/day for the
+entire week)
 }
 \description{
 Classify physical activity intensity from data frames in output folder
 }
 \examples{
-data <- read.csv("./Outputs/FilteredWakeData_CM.csv")
-
- acceldata_PAI <- markPAI(data = data, cts = "axis1", markingString = "w",
- breaks = c(-Inf, 100, 760, 2020, Inf),
- labels = c("sedentary", "light", "moderate", "vigorous"))
- 
- steps_week_summary <- function(acceldata_PAI)
+steps_week_summary(myPAdata)
 }
