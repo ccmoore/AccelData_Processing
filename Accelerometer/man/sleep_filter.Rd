@@ -52,7 +52,7 @@ subject, removes all epochs occuring between the bed and wake time of each
 day (as indicated in the sleep log), and exports new files to a directory
 with the names 'FilteredWakeData_ID' where 'ID' is the unique subject
 identifier. Each accelerometer physical activity file must contain a
-'TimeStamp' column with POSIXlt object of date and time for each epoch)
+' TimeStamp' column with POSIXlt object of date and time for each epoch)
 }
 \examples{
  sleep_filter(acceldata_dir = "./Outputs", sleeplog_dir = "./Data",

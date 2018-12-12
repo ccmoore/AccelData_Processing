@@ -10,7 +10,8 @@ plot_steps(pa_data)
 \item{pa_data}{dataframe with one minute epoch dat}
 }
 \value{
-a line graph of steps for each minute over the study period, with blue horizontal lines for each 24hrs
+a line graph of steps for each minute over the study period, with
+ blue horizontal lines for each 24hrs
 }
 \description{
 Plot steps vs time (minute)

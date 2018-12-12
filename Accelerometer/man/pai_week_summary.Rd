@@ -7,38 +7,20 @@
 pai_week_summary(acceldata_PAI)
 }
 \arguments{
-\item{acceldata_PAI}{use markPAI function from 'PhysicalActivity' package to assign character string
-of physical activity intensities within "data"}
-
-\item{data}{pull in data frame from output folder}
-
-\item{intensity_week_summary}{master function used to create functions "pai_byday", "pai_byweekday_end",
-and
-"pai_weekavg"}
-
-\item{pai_byday}{function used to create data frame classifying average physical activity intensity levels
-within "sedentary", "light", "moderate", and "vigorous" categories for each day of the week}
-
-\item{pai_byweekday_end}{function used to create data frame classifying physical activity intensity
-as "sedentary, light, moderate, or vigorous" for the average of all weekdays compared to the
-average of all weekend days}
-
-\item{pai_weekavg}{function used to create data frame classifying physical activity intensity
-as "sedentary, light, moderate, or vigorous" for the average of the entire week as a whole}
+\item{acceldata_PAI}{1-minute epoch accelerometer data with sleep time
+filtered out, a time stamp, and wear time classified (i.e., output from
+sleep_filter function)}
 }
 \value{
-function "intensity_week_summary" computes values and associated data frames for variables
- "pai_byday", "pai_byweekday_end", and "pai_weekavg"
+returns three objects, each consisting of a dataframe: "pai_byday"
+(minutes at each physical activity intensity for each day),
+"pai_byweekday_end" (average minutes per day at each intensity for weekdays
+and for weekends), and "pai_weekavg" (average minutes per day at each
+intensity for the entire week)
 }
 \description{
 Classify physical activity intensity from data frames in output folder
 }
 \examples{
-data <- read.csv("./Outputs/FilteredWakeData_CM.csv")
-
- acceldata_PAI <- markPAI(data = data, cts = "axis1", markingString = "w",
- breaks = c(-Inf, 100, 760, 2020, Inf),
- labels = c("sedentary", "light", "moderate", "vigorous"))
-
- intensity_week_summary <- function(acceldata_PAI)
+pai_week_summary(myPAdata)
 }
