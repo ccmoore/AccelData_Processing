@@ -26,7 +26,7 @@ output:
 # Brent worked on modelling new ggplots after the visual style of those already in the PhyscaActivity package and other published data. Ggplot code was turned into functions. Discovery of themes() was helpful in changing text and axis aesthetics. 
 # Chris was a big help and contributed to making and finalizing the graphs and functions. 
 
-# GitHub) WE FIGURED IT OUT
+# GitHub) WE FIGURED IT OUT!
 
 
 ```
