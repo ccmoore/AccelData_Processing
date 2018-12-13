@@ -1,0 +1,32 @@
+---
+title: "Steps group Debrief"
+output:
+  pdf_document: default
+  html_notebook: default
+---
+
+```{r}
+# To start, Chris Moore deserves to be recognized for his overall contributions that he made to the group. The resulting outcomes from this project would not have been achieved without him on the team. Not only did he help troubleshoot and problem solve broken code he took the time to explain the problems and solutions to the outher group member benefits. Most impactful to me was him teaching me about implementation of the list.files function specifically combined with specification of the the "pattern" argument for mass importanting data files into R which had a been a major challenge to me. 
+
+# More specifically to this project we stayed very true to our overall proposal and goals as outlined in that document. 
+# What we accomplished with our project was processing and analyizing e a small data set (n=4) of 7-day, 24-hour accelerometer PA data, using the ‘PhysicalActivity’ R package and custom R functions. 
+
+# Step 1) Prepare data for analysis using ‘PhysicalActitvity’ package
+# Per proposal this was completed by Chris with and changes merged to master via Pull Request to Brent. 
+# List.files was very helpful in this step including the "pattern" and "recursive" arguments. PhysicalActivity package functions were incorpated into more customizeable functions for use including:
+# acceldata_1sec$TimeStamp, acceldata_reint, acceldata_days. Each added expansions to the imported data frames
+
+#Step 2) Examine PA using counts (proprietary units) with ‘PhysicalActitvity’
+# This step was compelted by Colleen and edited with the help of John, and allowed for the impoted data to be summarized. The use of dplyr functions were essential to the data maniupulation in this step learned in class. The use of ifelse() specifally made for easy classifcation of weekday vs weekend days. 
+
+# Step 3) Examine PA using steps with custom functions
+# John spearheaded the implementation of the custom functions for this task with the help of Colleen as needed. The main obstacle was to calulcate steps/day for each day of the week summarized into weekday vs weekend output. Again, dplyr functions learned in class helpful in made data the arrangemnemt and manipualtion of data
+
+#Step 4) Visualize the data with ggplot2
+# Brent worked on modelling new ggplots after the visual style of those already in the PhyscaActivity package and other published data. Ggplot code was turned into functions. Discovery of themes() was helpful in changing text and axis aesthetics. 
+# Chris was a big help and contributed to making and finalizing the graphs and functions. 
+
+# GitHub) WE FIGURED IT OUT
+
+
+```
